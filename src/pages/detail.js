@@ -7,7 +7,7 @@ const detailCard = document.getElementById("detailCard");
 if (!item) {
   detailCard.innerHTML = `
     <div class="empty-wide">
-      没有找到这个内容。可能是本地数据被清空，或者链接已经失效。
+      没有找到这个内容。可能是演示数据被清空，或者链接已经失效。
       <p><a href="./index.html">返回首页</a></p>
     </div>
   `;

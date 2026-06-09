@@ -75,7 +75,7 @@ function closePostModal() {
   postModal.classList.add("hidden");
 }
 
-// 图片先读成 data URL，便于本地静态网页直接预览和保存。
+// 图片先读成 data URL，便于演示环境直接预览和保存。
 photoInput.addEventListener("change", () => {
   const file = photoInput.files[0];
   if (!file) return;

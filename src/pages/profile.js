@@ -15,7 +15,7 @@ function renderProfileHeader(user, stats) {
   const name = user?.name || "未登录";
   const bio = user
     ? user.bio || "这个账号还没有填写个人简介。"
-    : "可以先用本地演示账号体验；真实微信扫码需要公众号/开放平台配置。";
+    : "可以先用演示账号体验；真实微信扫码需要公众号/开放平台配置。";
   const city = user?.city || "未设置城市";
 
   myProfile.innerHTML = `

@@ -139,7 +139,7 @@ const SGC_SAMPLE_USERS = [
     name: "我",
     avatar: "",
     city: "上海市",
-    bio: "本地演示账号。",
+    bio: "演示账号。",
     provider: "local-demo"
   }
 ];

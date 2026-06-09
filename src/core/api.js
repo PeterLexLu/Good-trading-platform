@@ -1,5 +1,5 @@
 // SgcApi 是页面和数据之间的唯一接口层。
-// 现在使用 localStorage 模拟后端；接真实后端时优先替换这里的方法。
+// 当前演示环境使用 localStorage 模拟后端；接真实后端时优先替换这里的方法。
 const SgcApi = {
   // -------- 账号 / 微信登录 --------
   async getSession() {
@@ -16,7 +16,7 @@ const SgcApi = {
       loginId: `wx-login-${Date.now()}`,
       qrUrl: "local-demo://wechat-qrcode",
       expiresIn: 300,
-      note: "本地演示二维码。真实接入时这里由后端返回微信 OAuth/扫码登录地址。"
+      note: "演示二维码。真实接入时这里由后端返回微信 OAuth/扫码登录地址。"
     };
   },
 
@@ -161,7 +161,7 @@ const SgcApi = {
     return { chat, message };
   },
 
-  // -------- 本地演示数据管理 --------
+  // -------- 演示数据管理 --------
   async exportLocalData() {
     const data = sgcLoad();
     return {

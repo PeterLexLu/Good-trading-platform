@@ -2,7 +2,7 @@
 
 ## 测试环境
 
-- 本地服务：`python3 -m http.server 4173`
+- 预览服务：`python3 -m http.server 4173`
 - 访问地址：`http://localhost:4173`
 - 浏览器：Chrome / Safari / Codex in-app browser 均可
 - 数据来源：浏览器 `localStorage` 模拟后端
@@ -173,12 +173,12 @@ for f in *.js; do node --check "$f" || exit 1; done
 - 我发布的内容展示在下方
 - 退出后恢复未登录状态
 
-### 本地数据管理
+### 演示数据管理
 
 步骤：
 
 1. 打开 `profile.html`
-2. 点击“导出本地数据”
+2. 点击“导出演示数据”
 3. 点击“清空演示数据”
 
 预期：
