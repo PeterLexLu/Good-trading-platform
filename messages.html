@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>消息 - SGC-丰盛有鱼</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">SGC</span>
+        <span>丰盛有鱼</span>
+      </a>
+      <nav class="site-nav">
+        <a href="./index.html">首页</a>
+        <a href="./idle.html">闲置</a>
+        <a href="./wish.html">心愿池</a>
+        <a class="active" href="./messages.html">消息</a>
+        <a href="./profile.html">我的</a>
+      </nav>
+      <a class="login-chip" href="./profile.html">微信扫码登录</a>
+    </header>
+
+    <main class="page-shell">
+      <!-- 消息页只负责渲染会话列表，聊天详情交给 chat.html。 -->
+      <section class="section-head">
+        <div>
+          <p>消息</p>
+          <h1>你和发布者的沟通记录</h1>
+        </div>
+      </section>
+      <div class="empty-state" id="emptyMessages">
+        <div class="empty-icon"></div>
+        <p>暂无聊天记录</p>
+      </div>
+      <div class="chat-list" id="chatList"></div>
+    </main>
+
+    <script src="./common.js"></script>
+    <script src="./api.js"></script>
+    <script src="./messages.js"></script>
+  </body>
+</html>

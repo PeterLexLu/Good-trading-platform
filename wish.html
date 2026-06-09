@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>心愿池 - SGC-丰盛有鱼</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page-type="wish">
+    <header class="site-header">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">SGC</span>
+        <span>丰盛有鱼</span>
+      </a>
+      <nav class="site-nav">
+        <a href="./index.html">首页</a>
+        <a href="./idle.html">闲置</a>
+        <a class="active" href="./wish.html">心愿池</a>
+        <a href="./messages.html">消息</a>
+        <a href="./profile.html">我的</a>
+      </nav>
+      <a class="login-chip" href="./profile.html">微信扫码登录</a>
+    </header>
+
+    <main class="page-shell">
+      <!-- 心愿池列表页：展示用户的求助/许愿信息。 -->
+      <section class="section-head">
+        <div>
+          <p>心愿池</p>
+          <h1>写下需要，也可以成全别人的心愿</h1>
+        </div>
+        <button class="primary-btn compact" id="openPostForm">发布心愿</button>
+      </section>
+
+      <section class="toolbar" aria-label="心愿筛选">
+        <label class="search-box"><input id="searchInput" placeholder="搜索心愿、城市、分类" /></label>
+        <select id="cityFilter">
+          <option value="全部区域">全部区域</option>
+          <option value="上海市">上海市</option>
+          <option value="北京市">北京市</option>
+          <option value="广州市">广州市</option>
+          <option value="深圳市">深圳市</option>
+        </select>
+      </section>
+
+      <section class="market-layout">
+        <aside class="category-list" id="categoryList" aria-label="分类"></aside>
+        <div class="card-grid" id="itemGrid"></div>
+      </section>
+    </main>
+
+    <div class="modal hidden" id="postModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <form class="modal-panel" id="itemForm">
+        <div class="modal-head">
+          <h2 id="modalTitle">发布心愿</h2>
+          <button type="button" class="icon-btn" id="closeModal" aria-label="关闭">×</button>
+        </div>
+        <label class="upload-box" id="uploadBox">
+          <input type="file" id="photoInput" accept="image/*" />
+          <img id="photoPreview" alt="" />
+          <span>上传参考照片</span>
+        </label>
+        <label>心愿名称<input id="itemName" required maxlength="42" placeholder="例如：想要一台电脑" /></label>
+        <label>心愿信息<textarea id="itemDesc" required maxlength="240" placeholder="描述需要、用途、领取方式等"></textarea></label>
+        <div class="form-grid">
+          <label>城市<input id="itemCity" required placeholder="例如：上海市" /></label>
+          <label>分类<select id="itemCategory"></select></label>
+        </div>
+        <button class="primary-btn" type="submit">发布</button>
+      </form>
+    </div>
+
+    <script src="./common.js"></script>
+    <script src="./api.js"></script>
+    <script src="./list-page.js"></script>
+  </body>
+</html>

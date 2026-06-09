@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>发布者主页 - SGC-丰盛有鱼</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">SGC</span>
+        <span>丰盛有鱼</span>
+      </a>
+      <nav class="site-nav">
+        <a href="./index.html">首页</a>
+        <a href="./idle.html">闲置</a>
+        <a href="./wish.html">心愿池</a>
+        <a href="./messages.html">消息</a>
+        <a href="./profile.html">我的</a>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="publisher-profile" id="publisherProfile"></section>
+      <section class="publisher-section">
+        <div class="section-head">
+          <div>
+            <p>发布者内容</p>
+            <h1>TA 发布的闲置和心愿</h1>
+          </div>
+        </div>
+        <div class="card-grid" id="publisherItems"></div>
+      </section>
+    </main>
+
+    <script src="./common.js"></script>
+    <script src="./api.js"></script>
+    <script src="./publisher.js"></script>
+  </body>
+</html>

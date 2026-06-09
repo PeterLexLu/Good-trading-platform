@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闲置 - SGC-丰盛有鱼</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page-type="idle">
+    <header class="site-header">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">SGC</span>
+        <span>丰盛有鱼</span>
+      </a>
+      <nav class="site-nav">
+        <a href="./index.html">首页</a>
+        <a class="active" href="./idle.html">闲置</a>
+        <a href="./wish.html">心愿池</a>
+        <a href="./messages.html">消息</a>
+        <a href="./profile.html">我的</a>
+      </nav>
+      <a class="login-chip" href="./profile.html">微信扫码登录</a>
+    </header>
+
+    <main class="page-shell">
+      <!-- 闲置列表页：筛选、搜索和发布入口都在这里。 -->
+      <section class="section-head">
+        <div>
+          <p>闲置分享</p>
+          <h1>把暂时不用的物品，交给真正需要的人</h1>
+        </div>
+        <button class="primary-btn compact" id="openPostForm">发布闲置</button>
+      </section>
+
+      <section class="toolbar" aria-label="闲置筛选">
+        <label class="search-box"><input id="searchInput" placeholder="搜索物品、城市、分类" /></label>
+        <select id="cityFilter">
+          <option value="全部区域">全部区域</option>
+          <option value="上海市">上海市</option>
+          <option value="北京市">北京市</option>
+          <option value="广州市">广州市</option>
+          <option value="深圳市">深圳市</option>
+        </select>
+      </section>
+
+      <section class="market-layout">
+        <aside class="category-list" id="categoryList" aria-label="分类"></aside>
+        <div class="card-grid" id="itemGrid"></div>
+      </section>
+    </main>
+
+    <!-- 发布弹窗：闲置和心愿共用结构，由 list-page.js 设置标题和类型。 -->
+    <div class="modal hidden" id="postModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <form class="modal-panel" id="itemForm">
+        <div class="modal-head">
+          <h2 id="modalTitle">发布闲置</h2>
+          <button type="button" class="icon-btn" id="closeModal" aria-label="关闭">×</button>
+        </div>
+        <label class="upload-box" id="uploadBox">
+          <input type="file" id="photoInput" accept="image/*" />
+          <img id="photoPreview" alt="" />
+          <span>上传物品照片</span>
+        </label>
+        <label>物品名称<input id="itemName" required maxlength="42" placeholder="例如：收纳小包" /></label>
+        <label>物品信息<textarea id="itemDesc" required maxlength="240" placeholder="描述新旧程度、尺寸、领取方式等"></textarea></label>
+        <div class="form-grid">
+          <label>城市<input id="itemCity" required placeholder="例如：上海市" /></label>
+          <label>分类<select id="itemCategory"></select></label>
+        </div>
+        <button class="primary-btn" type="submit">发布</button>
+      </form>
+    </div>
+
+    <script src="./common.js"></script>
+    <script src="./api.js"></script>
+    <script src="./list-page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SGC-丰盛有鱼</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- 全站顶部导航：每个页面复用同样结构，只改变 active 状态。 -->
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="SGC-丰盛有鱼首页">
+        <span class="brand-mark">SGC</span>
+        <span>丰盛有鱼</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a class="active" href="./index.html">首页</a>
+        <a href="./idle.html">闲置</a>
+        <a href="./wish.html">心愿池</a>
+        <a href="./messages.html">消息</a>
+        <a href="./profile.html">我的</a>
+      </nav>
+      <a class="login-chip" href="./profile.html">微信扫码登录</a>
+    </header>
+
+    <!-- 首页只展示海报轮播，符合“主页仅展示滚动海报”的需求。 -->
+    <main class="page-shell">
+      <section class="hero-carousel" aria-label="首页海报轮播">
+        <div class="poster-track" id="posterTrack">
+          <article class="poster poster-a" aria-label="SGC 丰盛有鱼海报"></article>
+          <article class="poster poster-b">
+            <p>Give Freely</p>
+            <h1>让爱流动</h1>
+            <span>把闲置交给正需要的人</span>
+          </article>
+        </div>
+        <div class="dots" id="posterDots" aria-label="轮播指示">
+          <span class="active"></span>
+          <span></span>
+        </div>
+      </section>
+    </main>
+
+    <script src="./home.js"></script>
+  </body>
+</html>

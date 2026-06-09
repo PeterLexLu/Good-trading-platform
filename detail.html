@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>物品详情 - SGC-丰盛有鱼</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">SGC</span>
+        <span>丰盛有鱼</span>
+      </a>
+      <nav class="site-nav">
+        <a href="./index.html">首页</a>
+        <a href="./idle.html">闲置</a>
+        <a href="./wish.html">心愿池</a>
+        <a href="./messages.html">消息</a>
+        <a href="./profile.html">我的</a>
+      </nav>
+    </header>
+
+    <main class="page-shell detail-page">
+      <div class="detail-card" id="detailCard"></div>
+      <aside class="side-panel">
+        <h2>沟通与领取</h2>
+        <p>物品详情为只读页面。你可以联系发布者沟通领取时间、地点和物品状态。</p>
+        <a class="primary-btn link-btn" id="chatAboutItem" href="#">聊一聊</a>
+      </aside>
+    </main>
+
+    <script src="./common.js"></script>
+    <script src="./api.js"></script>
+    <script src="./detail.js"></script>
+  </body>
+</html>
