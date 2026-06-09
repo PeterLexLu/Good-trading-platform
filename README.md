@@ -31,19 +31,25 @@ http://localhost:4173
 
 ## 脚本结构
 
-- `common.js`：公共数据、分类、工具函数、本地数据读取保存
-- `api.js`：统一接口层，目前用 `localStorage` 模拟后端
-- `home.js`：首页海报轮播
-- `list-page.js`：闲置页和心愿池页共用的列表、筛选、发布逻辑
-- `detail.js`：详情页渲染
-- `publisher.js`：发布者主页渲染
-- `chat.js`：聊天页渲染和发送消息
-- `messages.js`：消息列表渲染
-- `profile.js`：我的主页、登录、退出、导出和清空数据
+- `src/core/common.js`：公共数据、分类、工具函数、本地数据读取保存
+- `src/core/api.js`：统一接口层，目前用 `localStorage` 模拟后端
+- `src/pages/home.js`：首页海报轮播
+- `src/pages/list-page.js`：闲置页和心愿池页共用的列表、筛选、发布逻辑
+- `src/pages/detail.js`：详情页渲染
+- `src/pages/publisher.js`：发布者主页渲染
+- `src/pages/chat.js`：聊天页渲染和发送消息
+- `src/pages/messages.js`：消息列表渲染
+- `src/pages/profile.js`：我的主页、登录、退出、导出和清空数据
 
 ## 样式
 
-所有页面共用 `styles.css`。目前“我的主页”和“其他用户主页”复用同一套 `publisher-profile` 样式，以保持视觉一致。
+所有页面共用 `styles/styles.css`。目前“我的主页”和“其他用户主页”复用同一套 `publisher-profile` 样式，以保持视觉一致。
+
+## 资源与文档
+
+- `assets/images/`：图片资源
+- `docs/API_CONTRACT.md`：接口文档
+- `docs/TESTING.md`：测试文档
 
 ## 当前功能
 
@@ -74,7 +80,7 @@ http://localhost:4173
 - 后端获取并保存 `openid` / `unionid` / 用户资料
 - 后端创建登录态
 
-具体接口约定见 [API_CONTRACT.md](./API_CONTRACT.md)。
+具体接口约定见 [API_CONTRACT.md](./docs/API_CONTRACT.md)。
 
 ## 数据存储
 
@@ -90,6 +96,6 @@ http://localhost:4173
 ## 维护建议
 
 - 新页面尽量使用独立 HTML 和独立 JS 文件
-- 跨页面逻辑放入 `api.js` 或 `common.js`
+- 跨页面逻辑放入 `src/core/api.js` 或 `src/core/common.js`
 - 不要让页面直接读写复杂数据，优先通过 `SgcApi`
-- 接真实后端时优先替换 `api.js`，保持页面脚本不变
+- 接真实后端时优先替换 `src/core/api.js`，保持页面脚本不变

@@ -1,6 +1,6 @@
 # SGC-丰盛有鱼接口文档
 
-本文档描述前端期望的后端接口。当前本地版本由 [api.js](./api.js) 中的 `SgcApi` 使用 `localStorage` 模拟这些接口。后续接入真实后端时，建议保持返回结构一致，页面脚本无需大改。
+本文档描述前端期望的后端接口。当前本地版本由 [src/core/api.js](../src/core/api.js) 中的 `SgcApi` 使用 `localStorage` 模拟这些接口。后续接入真实后端时，建议保持返回结构一致，页面脚本无需大改。
 
 ## 通用约定
 
@@ -507,7 +507,7 @@ POST /api/dev/reset
 
 ## 前端接口映射
 
-`api.js` 中的方法与后端接口建议对应如下：
+`src/core/api.js` 中的方法与后端接口建议对应如下：
 
 - `SgcApi.getSession()` -> `GET /api/session`
 - `SgcApi.startWechatLogin()` -> `POST /api/auth/wechat/start`
