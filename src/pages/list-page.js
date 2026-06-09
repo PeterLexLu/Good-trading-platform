@@ -55,6 +55,9 @@ async function renderItems() {
           <span>${sgcEscape(item.city)} · ${sgcEscape(item.category)}</span>
         </div>
       </a>
+      <div class="card-actions">
+        <button class="secondary-btn share-card" data-item-id="${sgcEscape(item.id)}">分享</button>
+      </div>
     </article>
   `).join("");
 
@@ -64,6 +67,11 @@ async function renderItems() {
 }
 
 function openPostModal() {
+  if (!sgcLoad().user) {
+    sgcRedirectToLogin(`${window.location.pathname.split("/").pop()}?action=publish`);
+    return;
+  }
+
   pageState.photoDataUrl = "";
   itemForm.reset();
   uploadBox.classList.remove("has-image");
@@ -110,5 +118,22 @@ postModal.addEventListener("click", (event) => {
 searchInput.addEventListener("input", renderItems);
 cityFilter.addEventListener("change", renderItems);
 
+itemGrid.addEventListener("click", async (event) => {
+  const shareButton = event.target.closest(".share-card");
+  if (!shareButton) return;
+  const shareUrl = sgcBuildItemShareUrl(shareButton.dataset.itemId);
+  const copied = await sgcCopyText(shareUrl);
+  shareButton.textContent = copied ? "已复制" : "复制失败";
+  setTimeout(() => {
+    shareButton.textContent = "分享";
+  }, 1400);
+});
+
 renderCategoryControls();
-renderItems();
+renderItems().then(() => {
+  const action = new URLSearchParams(window.location.search).get("action");
+  if (action === "publish" && sgcLoad().user) {
+    openPostModal();
+    window.history.replaceState({}, "", window.location.pathname);
+  }
+});

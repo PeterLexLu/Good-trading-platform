@@ -377,6 +377,8 @@ button {
 }
 
 .item-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -404,8 +406,17 @@ button {
   font-weight: 800;
 }
 
-.item-card div {
+.item-card a > div {
   padding: 14px;
+}
+
+.item-card .card-actions {
+  margin-top: auto;
+  padding: 0 14px 14px;
+}
+
+.item-card .card-actions .secondary-btn {
+  width: 100%;
 }
 
 .item-card h3 {
@@ -649,6 +660,12 @@ button {
 
 .side-panel h2 {
   margin: 0;
+}
+
+.share-status {
+  min-height: 20px;
+  color: var(--blue-dark) !important;
+  font-size: 14px;
 }
 
 .chat-page {

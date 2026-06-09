@@ -196,6 +196,40 @@ function sgcNowText() {
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
 }
 
+function sgcCurrentPath() {
+  return `${window.location.pathname.split("/").pop()}${window.location.search || ""}`;
+}
+
+function sgcLoginUrl(redirectPath) {
+  return `./profile.html?redirect=${encodeURIComponent(redirectPath)}`;
+}
+
+function sgcRedirectToLogin(redirectPath = sgcCurrentPath()) {
+  window.location.href = sgcLoginUrl(redirectPath);
+}
+
+function sgcBuildItemShareUrl(itemId) {
+  return `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, "")}detail.html?id=${encodeURIComponent(itemId)}`;
+}
+
+async function sgcCopyText(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return true;
+  }
+
+  const input = document.createElement("input");
+  input.value = text;
+  input.setAttribute("readonly", "");
+  input.style.position = "fixed";
+  input.style.opacity = "0";
+  document.body.appendChild(input);
+  input.select();
+  const ok = document.execCommand("copy");
+  input.remove();
+  return ok;
+}
+
 function sgcEnsureChat(data, item) {
   let chat = data.chats.find((entry) => entry.itemId === item.id);
   if (!chat) {

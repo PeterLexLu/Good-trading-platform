@@ -3,6 +3,9 @@ const data = sgcLoad();
 const params = new URLSearchParams(window.location.search);
 const item = data.items.find((entry) => entry.id === params.get("id"));
 const detailCard = document.getElementById("detailCard");
+const chatLink = document.getElementById("chatAboutItem");
+const shareButton = document.getElementById("shareItem");
+const shareStatus = document.getElementById("shareStatus");
 
 if (!item) {
   detailCard.innerHTML = `
@@ -11,7 +14,8 @@ if (!item) {
       <p><a href="./index.html">返回首页</a></p>
     </div>
   `;
-  document.getElementById("chatAboutItem").classList.add("disabled");
+  chatLink.classList.add("disabled");
+  shareButton.classList.add("hidden");
 } else {
   document.title = `${item.title} - SGC-丰盛有鱼`;
   detailCard.innerHTML = `
@@ -28,5 +32,11 @@ if (!item) {
       </dl>
     </div>
   `;
-  document.getElementById("chatAboutItem").href = `./chat.html?item=${encodeURIComponent(item.id)}`;
+  const chatPath = `chat.html?item=${encodeURIComponent(item.id)}`;
+  chatLink.href = data.user ? `./${chatPath}` : sgcLoginUrl(chatPath);
+  shareButton.addEventListener("click", async () => {
+    const shareUrl = sgcBuildItemShareUrl(item.id);
+    const copied = await sgcCopyText(shareUrl);
+    shareStatus.textContent = copied ? "分享链接已复制" : shareUrl;
+  });
 }

@@ -93,12 +93,8 @@ const SgcApi = {
 
   async createItem(payload) {
     const data = sgcLoad();
-    const owner = data.user || {
-      id: "me",
-      name: "我",
-      city: payload.city || "上海市",
-      provider: "local-demo"
-    };
+    if (!data.user) throw new Error("请先登录后再发布。");
+    const owner = data.user;
     const item = {
       id: `${payload.type}-${Date.now()}`,
       type: payload.type,
@@ -140,6 +136,7 @@ const SgcApi = {
 
   async ensureChatForItem(itemId) {
     const data = sgcLoad();
+    if (!data.user) throw new Error("请先登录后再聊天。");
     const item = data.items.find((entry) => entry.id === itemId);
     if (!item) throw new Error("物品不存在，无法创建聊天。");
     const chat = sgcEnsureChat(data, item);
@@ -148,6 +145,7 @@ const SgcApi = {
 
   async sendMessage(chatId, text) {
     const data = sgcLoad();
+    if (!data.user) throw new Error("请先登录后再发送消息。");
     const chat = data.chats.find((entry) => entry.id === chatId);
     if (!chat) throw new Error("聊天不存在。");
     const message = {
