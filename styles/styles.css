@@ -410,15 +410,6 @@ button {
   padding: 14px;
 }
 
-.item-card .card-actions {
-  margin-top: auto;
-  padding: 0 14px 14px;
-}
-
-.item-card .card-actions .secondary-btn {
-  width: 100%;
-}
-
 .item-card h3 {
   margin: 0 0 8px;
   font-size: 19px;
